@@ -1,26 +1,50 @@
 import time
 
 from random import randint
-x = input("Your date of birth without spaces : ") ;
-y = input("Your friend's date of birth without spaces : ");
 
-if(x > y ) :
-	print("Player1 should start first")
-elif(x < y) : 
-	print("Player2 should start first")
-elif ( x == y) :
-	print("Your wish ")
-#################
-for i in xrange (1,3) :
-	print("You are now ready to start your game..")
-	time.sleep(1)
-#for x in xrange(1,9):
-#	
-#	print(x)
-#	time.sleep(1)
+player1 = 0
+player2 = 0
+
+a = range(1,11);b = range(11,21)[::-1];c = range(21,31);d = range(31,41)[::-1];e = range(41,51);f = range(51,61)[::-1];g = range(61,71);
+h = range(71,81)[::-1];i = range(81,91);j = range(91,101)[::-1]
+print "Snakes and Ladders game"
+print j,'\n',i,'\n',h,'\n',g,'\n',f,'\n',e,'\n',d,'\n',c,'\n',b,'\n',a
+
+def check_for_snakes_and_ladders(n):
+	"""This method checks for the presence of snakes or ladders in the board"""
+	ladders = {1:38,4:14,9:31,21:42,28:84,36:44,51:67,71:91,80:100}
+	snakes = {98:78,95:75,93:73,87:24,64:60,62:19,56:53,49:11,48:26,16:6}
+	if ladders.has_key(n):
+		print "Its a ladder,Climb up"
+		n = ladders[n]
+	elif snakes.has_key(n):
+		print "Its a snake!!,Come down"
+		n = snakes[n]
+	return n
+def roll_dice(r):
+	d = r+randint(0, 6)
+	return d
+
+
+while player1 < 100 or player2 < 100:
 	raw_input("Press any key to role the die!")
 
-	x = str(randint(-6, 6))
-	print("You can move " + x + " Steps ")
- 	if(x==6) :
- 		print("Your turn again!")  
+	print "Its turn of player1\n"
+	player1 = roll_dice(player1)
+	player1 = check_for_snakes_and_ladders(player1)
+	print "Current status of Player1:",player1,"and Player2:",player2
+
+	if player1 > 99:
+
+		print "Winner of the game is player1"
+		break
+		raw_input("Press any key to role the die!")
+
+	print "Its turn of player2\n"
+	player2 = roll_dice(player2)
+	player2 = check_for_snakes_and_ladders(player2)
+	print "Current status of Player1:",player1," and Player2:",player2
+
+	if player2 > 99:
+		print "Winner of the game is player2"
+		break
