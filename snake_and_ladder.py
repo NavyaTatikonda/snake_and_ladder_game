@@ -22,6 +22,21 @@ def check_for_snakes_and_ladders(n):
 		n = snakes[n]
 	return n
 def roll_dice(r):
+	"""This method takes input from each of the players, prints the current position of the players and checks for the
+	winner of the game"""
+	#d = int(raw_input("roll the dice: "))
+	#while d < 1 or d > 6:
+	#	d = int(raw_input("dice should show 1 to 6,Roll the dice again: "))
+	#d = r + d
+	#return 
+	#time.sleep(1)
+	#raw_input("Press any key to role the die!")
+
+	#x = str(randint(1, 6))
+	#print("You can move " + x + " Steps ")
+	#d = int(raw_input("roll the dice: "))
+	"""This method takes input from each of the players, prints the current position of the players and checks for the
+	winner of the game"""
 	d = r+randint(0, 6)
 	return d
 
@@ -38,7 +53,7 @@ while player1 < 100 or player2 < 100:
 
 		print "Winner of the game is player1"
 		break
-		raw_input("Press any key to role the die!")
+	raw_input("Press any key to role the die!")
 
 	print "Its turn of player2\n"
 	player2 = roll_dice(player2)
